@@ -1,0 +1,140 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% include 'cdnlines.html' %}
+</head>
+
+<body>
+    <table  id="example" class="display table table-bordered">
+        <thead class="bg-primary" id="W">
+          <tr >
+            <th class="text-center"  >Campaign Name</th>
+            <th class="text-center"  >Date</th>
+            <th class="text-center"  >NO OF IMPRESSIONS</th>
+            <th class="text-center" >NO OF CLICKS</th>
+            <th class="text-center" >COST PER IMPRESSIONS</th>
+            <th class="text-center" >COST PER CLICK</th>
+            <th class="text-center" >TOTAL COST PER IMPRESSIONS</th>
+            <th class="text-center" >TOTAL COST PER CLICKS</th>
+            <th class="text-center" >TOTAL COST PER Day</th>
+    
+
+          </tr>
+        </thead>
+        <tbody id="W">
+            {% if x %}
+            {% for i in x %}
+            
+            
+          <tr style="font-size: 15px;">
+            <td>{{i.campaign_name}}</td>
+            <td style="width: 10%;">{{i.date}}</td>
+            <td>{{i.no_of_impressions}}</td>
+            <td>{{i.no_of_clicks}}</td>
+            <td>{{i.cost_per_impressions}}</td>
+            <td>{{i.cost_per_click}}</td>
+            <td>{{i.total_cost_per_impressions}}</td>
+            <td>{{i.total_cost_per_click}}</td>
+            <td>{{i.cost_per_day}}</td>
+            
+          </tr>
+          {% endfor %}
+          {% endif %}
+            
+          
+        </tbody>
+      </table>
+</body>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Set the character encoding and compatibility mode -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Set the viewport to scale based on the device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Set the title of the webpage -->
+    <title>Document</title>
+    <!-- Include an external HTML file with CDN links -->
+    {% include 'cdnlines.html' %}
+</head>
+
+<body>
+    <!-- Create a header with a black background color and links to navigate -->
+    <h5 style="background-color: black;padding: 10px;">
+        <!-- <a href="/homepage/" style="margin-left: 10px;color: white;padding: 20px;">Back</a> -->
+        <a href="/login/" style="margin-left: 1220px;color: white;">Logout</a>
+        </h5>
+
+    <!-- Create a form that submits to a specified URL when the user clicks the submit button -->
+    <form action="{% url 'campaign_details' %}" method="post">
+        <!-- Add a CSRF token to the form for security purposes -->
+        {% csrf_token %}
+        <!-- Create a label for the dropdown menu -->
+        <label for="campaign_name">Select a campaign:</label>
+        <!-- Create a dropdown menu of campaigns -->
+        <select name="campaign_name" id="campaign_name">
+            <!-- Loop through each campaign and add it as an option in the dropdown menu -->
+            {% for campaign in campaigns %}
+            <option value="{{ campaign.campaign_name }}">{{ campaign.campaign_name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <!-- Create a submit button for the form -->
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Create a table with a class and header row -->
+    <table id="example" class="display table table-bordered">
+        <thead class="bg-info" id="W">
+            <tr>
+                <!-- Create header cells with centered text -->
+                <th class="text-center">Campaign Name</th>
+                <th class="text-center">Date</th>
+                <th class="text-center">NO OF IMPRESSIONS</th>
+                <th class="text-center">NO OF CLICKS</th>
+                <th class="text-center">COST PER IMPRESSIONS</th>
+                <th class="text-center">COST PER CLICK</th>
+                <th class="text-center">TOTAL COST PER IMPRESSIONS</th>
+                <th class="text-center">TOTAL COST PER CLICKS</th>
+                <th class="text-center">TOTAL COST PER Day</th>
+            </tr>
+        </thead>
+        <tbody id="W">
+            <!-- Check if there is a campaign to display -->
+            {% if campaign %}
+            <!-- Loop through each row in the campaign and display the data in table cells -->
+            {% for i in campaign %}
+            <tr style="font-size: 15px;">
+                <td>{{i.campaign_name}}</td>
+                <td style="width: 10%;">{{i.date}}</td>
+                <td>{{i.no_of_impressions}}</td>
+                <td>{{i.no_of_clicks}}</td>
+                <td>{{i.cost_per_impressions}}</td>
+                <td>{{i.cost_per_click}}</td>
+                <td>{{i.total_cost_per_impressions}}</td>
+                <td>{{i.total_cost_per_click}}</td> 
+          
+        </tr>
+        {% endfor %}
+        {% endif %}
+          
+      </tbody>
+    </table>
+
+
+
+</body>
+
+</html>

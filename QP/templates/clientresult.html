@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>repot data</title>
+    {% include 'cdnlines.html' %}
+
+    <style>
+        #img2{
+          margin-left: 60%;
+        }
+      </style>
+
+
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <hr>
+      <img src="https://www.brightcomgroup.com/wp-content/uploads/2021/02/logo.png" width="300px" height="80px">
+      <img src="data:image/jpeg;base64,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" width="100" height="100" id="img2" style="margin-left: ;">
+      <hr>
+          </div>
+        </div>
+      </div>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+</head>
+
+<body>
+    {% block content %}
+
+
+        <form method="POST">
+            {% csrf_token %}
+            <center>
+                <label>FROM</label>
+                <input type="date" name="datef" required/>
+                <label>To</label>
+                <input type="date" name="datet" required/>
+                <button type="submit" class="btn btn-warning btn-sm">Search</button>
+            </center>
+            <div class="container-fluid">
+                <div>
+                    <!---
+      <div >
+        <hr>
+        <label>From:</label>
+        <input type="date" name="fromdate">
+        <label >To:</label>
+        <input type="date" name="todate">
+        <input type="submit" value="search">
+        </hr>
+      </div>
+    -->
+                </div>
+                <table id="example" class="display">
+                    <thead class="bg-info" id="W">
+                        <tr>
+                            <th class="text-center">Client Name</th>
+                            <th class="text-center">Campaign Name</th>
+                            <th class="text-center">Date</th>
+                            <th class="text-center">NO OF IMPRESSIONS</th>
+                            <th class="text-center">NO OF CLICKS</th>
+                            <th class="text-center">COST PER IMPRESSIONS</th>
+                            <th class="text-center">COST PER CLICK</th>
+                            <th class="text-center">TOTAL COST PER IMPRESSIONS</th>
+                            <th class="text-center">TOTAL COST PER CLICKS</th>
+                            <th class="text-center">TOTAL COST PER Day</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody id="W">
+                        {% if q %} {% for i in q %}
+
+
+                        <tr style="font-size: 15px;">
+                            <td>{{i.clientname}}</td>
+                            <td>{{i.campaign_name}}</td>
+                            <td style="width: 10%;">{{i.date}}</td>
+                            <td>{{i.no_of_impressions}}</td>
+                            <td>{{i.no_of_clicks}}</td>
+                            <td>{{i.cost_per_impressions}}</td>
+                            <td>{{i.cost_per_click}}</td>
+                            <td>{{i.total_cost_per_impressions}}</td>
+                            <td>{{i.total_cost_per_click}}</td>
+                            <td>{{i.cost_per_day}}</td>
+
+
+
+                        </tr>
+                        {% endfor %} {% endif %}
+
+
+                    </tbody>
+                </table>
+        </form>
+        <script src="https://ajax.googleapis/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/Javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script type="text/Javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#example').DataTable();
+            });
+        </script>
+
+<button><a href="{% url 'plot_graph1' %} ">clicks graph</a></button>
+<button><a href="{% url 'clickschart' %} ">Clicks chart</a></button>
+<button><a href="{% url 'impressionschart' %} ">Impressions chart</a></button>
+<button><a href="{% url 'plot_graph' %} ">Impressions graph</a></button>
+
+        {% endblock %}
+</body>
+
+</html>

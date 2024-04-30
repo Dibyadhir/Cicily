@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+
+   
+    {% include 'cdnlines.html' %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
+       
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <ul class="nav navbar-nav text-white">
+      
+                <li><a href="/clientform/" class="text-white">Client Form</a></li>
+                <li><a href="/taskcreation/" class="text-white ml-3">Task Requriments Form</a></li>
+                <li><a href="/u_report/" class="text-white ml-3">Report Form</a></li>
+                
+                <li><a href="/viewclientdetails/" class="text-white ml-3">Client Details</a></li>
+                <li><a href="/taskdata/" class="text-white ml-3">Task Details</a></li>
+                <li><a href="/reportdata/" class="text-white ml-3">Report Details</a></li>
+                <li><a href="/login/"  class="text-white" style="margin-left: 1000px;">Logout</a></li>
+                
+              </ul>
+          </div>
+        </div>
+      </nav>
+   
+</head>
+
+<body style="background-color: aliceblue">
+
+
+    <center>
+        <form method="POST" class="mt-5">
+            <form method="POST" class="mt-4 mb-3">
+                {% csrf_token %}
+                <label>FROM</label>
+                <input type="date" name="datef" required/>
+                <label>To</label>
+                <input type="date" name="datet" required/>
+                <button type="submit" class="btn btn-warning btn-sm">Search</button>
+
+    </center>
+    <table class="table table-bordered" id="example" class="display">
+        <thead class="bg-info" id="W">
+            <tr>
+                <th>name</th>
+                <th>date</th>
+                <th>no_of_impressions</th>
+                <th>no_of_clicks</th>
+                <th>cost_per_impressions</th>
+                <th>cost_per_click</th>
+                <th>total_cost_per_impressions</th>
+                <th>total_cost_per_click</th>
+                <th>cost_per_day</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if queryset %} {% for i in queryset %}
+            <tr>
+                <td>{{i.clientname}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.no_of_impressions}}</td>
+                <td>{{i.no_of_clicks}}</td>
+                <td>{{i.cost_per_click}}</td>
+                <td>{{i.cost_per_impressions}}</td>
+                <td>{{i.total_cost_per_impressions}}</td>
+                <td>{{i.total_cost_per_click}}</td>
+                <td>{{i.cost_per_day}}</td>
+                <td>
+                    <a href="" class="btn bg-warning text-white">Edit</a>
+                    <a href="" class="btn bg-danger text-white">Delete</a>
+                </td>
+            </tr>
+            {% endfor %} {% endif %}
+        </tbody>
+    </table>
+    </form>
+    <script src="https://ajax.googleapis/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/Javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/Javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
+
+</body>
+
+</html>

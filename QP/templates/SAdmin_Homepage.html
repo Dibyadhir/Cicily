@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Super admin homepage</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    {% include 'cdnlines.html' %}
+
+
+    <style>
+        .navbar {
+            text-decoration: none;
+        }
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
+
+
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <ul class="nav navbar-nav text-white" style="font-size: 16px;">
+
+                    <li><a href="/clientform/" class="text-white">Client Form</a></li>
+                    <li><a href="/taskcreation/" class="text-white ml-3">Task Requriments Form</a></li>
+                    <li><a href="/u_report/" class="text-white ml-3">Report Form</a></li>
+
+                    <li><a href="/viewclientdetails/" class="text-white ml-3">Client Details</a></li>
+                    <li><a href="/taskdata/" class="text-white ml-3">Task Details</a></li>
+                    <li><a href="/reportdata/" class="text-white ml-3">Report Details</a></li>
+                    <li><a href="/login/" class="text-white" style="margin-left: 800px;">Logout</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</head>
+
+<body style="background-image: url('https://wallpapercave.com/wp/wp3950068.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+
+
+
+
+
+    {% block content %} {% endblock %}
+
+
+
+</body>
+
+</html>
